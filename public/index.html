@@ -17,25 +17,45 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+
     <style media="screen">
       body {
         font-family: 'Poppins', sans-serif;
 
         margin: 0;
         padding: 0;
+
+        overflow: hidden;
       }
 
-      @keyframes GradientAnimation {
-        0% {
-          background-position: 0% 50%;
+      @media (min-width: 200px) {
+        body {
+          font-size: 32px;
         }
+      }
 
-        50% {
-          background-position: 100% 50%;
+      @media (min-width: 600px) {
+        body {
+          font-size: 64px;
         }
+      }
 
-        100% {
-          background-position: 0% 50%;
+      @media (min-width: 800px) {
+        body {
+          font-size: 96px;
+        }
+      }
+
+      @media (min-width: 1100px) {
+        body {
+          font-size: 128px;
+        }
+      }
+
+      @media (min-width: 2100px) {
+        body {
+          font-size: 256px;
         }
       }
 
@@ -50,51 +70,19 @@
         height: 100vh;
       }
 
-      h1 {
-        font-size: 64px;
+      .content h1 {
         z-index: 1;
         font-weight: bold;
-      }
-
-      @media (min-width: 200px) {
-        h1 {
-          font-size: 32px;
-        }
-      }
-
-      @media (min-width: 600px) {
-        h1 {
-          font-size: 64px;
-        }
-      }
-
-      @media (min-width: 800px) {
-        h1 {
-          font-size: 96px;
-        }
-      }
-
-      @media (min-width: 1100px) {
-        h1 {
-          font-size: 128px;
-        }
-      }
-
-      @media (min-width: 2100px) {
-        h1 {
-          font-size: 256px;
-        }
+        font-size: 1em;
       }
 
       .box {
         position: absolute;
         width: 100vw;
-        height: 50vh;
-        margin-top: 50vh;
+        height: 100vh;
+        margin-top: 0vh;
         
-        background: linear-gradient(270deg, #398dfc, #1c69ce);
-        background-size: 400% 400%;
-        animation: GradientAnimation 2s ease infinite;
+        background: linear-gradient(0deg, #398dfc, #1c69ce);
 
         z-index: -1;
       }
@@ -116,6 +104,19 @@
           console.error(e);
           console.error('Error loading the Firebase SDK, check the console.');
         }
+
+        anime({
+          targets: '.box',
+          translateY: '50vh',
+          duration: 1000
+        });
+
+        anime({
+          targets: '.content',
+          translateY: [-30, 0],
+          scale: [0.8, 1],
+          duration: 1000
+        });
       });
     </script>
   </body>
