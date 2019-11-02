@@ -50,7 +50,8 @@ body {
   padding: 0 20px;
 }
 
-.content>div.border {
+.content>div.first,
+.content>div.second {
   border-right: solid 1px #17519c;
 }
 
@@ -85,7 +86,8 @@ a:link {
     overflow-y: scroll;
     justify-content: left;
   }
-  .content>div.border {
+  .content>div.first,
+  .content>div.second {
     border-right: none;
   }
 }
@@ -93,6 +95,9 @@ a:link {
 @media (min-width: 800px) {
   body {
     font-size: 96px;
+  }
+  .content>div.third {
+    margin-bottom: 50px;
   }
 }
 
