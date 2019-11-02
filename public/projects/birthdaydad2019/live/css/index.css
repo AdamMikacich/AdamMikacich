@@ -1,0 +1,103 @@
+body {
+  font-family: 'Poppins', sans-serif;
+
+  margin: 0;
+  padding: 30px;
+
+  font-size: 64px;
+
+  overflow: hidden;
+
+  color: white;
+
+  background: linear-gradient(270deg, #11111b, #242a47);
+  background-size: 200% 200%;
+
+  -webkit-animation: GradientAnimate 3s ease infinite;
+  -moz-animation: GradientAnimate 3s ease infinite;
+  animation: GradientAnimate 3s ease infinite;
+}
+
+@-webkit-keyframes GradientAnimate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes GradientAnimate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+@keyframes GradientAnimate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+@media (min-width: 800px) {
+  body {
+    font-size: 96px;
+  }
+}
+
+@media (min-width: 1100px) {
+  body {
+    font-size: 128px;
+  }
+}
+
+@media (min-width: 2100px) {
+  body {
+    font-size: 256px;
+  }
+}
+
+#text {
+  transform: translateX(0);
+}
+
+.title {
+  width: 100vw;
+
+  color: #000;
+}
+
+h1 {
+  z-index: 1;
+  font-weight: bold;
+  font-size: 1.25em;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  line-height: 80%;
+}
+
+p {
+  font-size: 0.3em;
+  opacity: 0;
+}
+
+.salutation {
+  font-size: 0.3em;
+  color: #000;
+}
+
+#happy, #birthday, #love, #adam {
+  transform: translateX(-100vw);
+}
+
+.stars {
+  top: 0;
+  position: absolute;
+  margin: calc(50vh - 5px) calc(50vw - 30px);
+}
+
+.stars div {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background: #eff0db;
+  box-shadow: 0 0 30px 2px #eff0db;
+}
