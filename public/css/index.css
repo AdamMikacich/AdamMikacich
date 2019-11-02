@@ -38,6 +38,7 @@ body {
   display: flex;
   align-content: stretch;
   justify-content: center;
+  flex-direction: row;
   opacity: 0;
   width: 100vw;
   height: 50vh;
@@ -76,6 +77,17 @@ a:link {
   opacity: 0.8;
   text-decoration: none;
   color: #a5c4ec;
+}
+
+@media (max-width: 600px) {
+  .content {
+    flex-direction: column;
+    overflow-y: scroll;
+    justify-content: left;
+  }
+  .content>div.border {
+    border-right: none;
+  }
 }
 
 @media (min-width: 800px) {
