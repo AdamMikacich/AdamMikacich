@@ -1,12 +1,81 @@
 body {
-  font-family: 'Poppins', sans-serif;
-
   margin: 0;
   padding: 0;
-
-  font-size: 64px;
-
   overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-size: 64px;
+}
+
+.title {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(25vh);
+  width: 100vw;
+  height: 50vh;
+  color: #fff;
+}
+
+.title h1 {
+  z-index: 1;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.projects {
+  position: absolute;
+  z-index: -1;
+  margin-top: 0vh;
+  border-top: solid 1px #17519c;
+  background: #1c69ce;
+  width: 100vw;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  align-content: stretch;
+  justify-content: center;
+  opacity: 0;
+  width: 100vw;
+  height: 50vh;
+}
+
+.content>div {
+  box-sizing: border-box;
+  flex: 1;
+  padding: 0 20px;
+}
+
+.content>div.border {
+  border-right: solid 1px #17519c;
+}
+
+.content p {
+  height: 2.2em;
+  text-align: center;
+  color: white;
+  font-size: 0.3em;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 0.25em;
+}
+
+li {
+  border-bottom: solid 1px #17519c;
+}
+
+a,
+a:link {
+  opacity: 0.8;
+  text-decoration: none;
+  color: #a5c4ec;
 }
 
 @media (min-width: 800px) {
@@ -19,86 +88,4 @@ body {
   body {
     font-size: 128px;
   }
-}
-
-@media (min-width: 2100px) {
-  body {
-    font-size: 256px;
-  }
-}
-
-.title {
-  position: absolute;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100vw;
-  height: 50vh;
-
-  transform: translateY(25vh);
-
-  color: #fff;
-}
-
-.title h1 {
-  z-index: 1;
-  font-weight: bold;
-  font-size: 1em;
-  text-align: center;
-}
-
-.projects {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  margin-top: 0vh;
-  background: #1c69ce;
-  z-index: -1;
-  border-top: solid 1px #17519c;
-}
-
-.content {
-  display: flex;
-  justify-content: center;
-  align-content: stretch;
-  width: 100vw;
-  height: 50vh;
-
-  opacity: 0;
-}
-
-.content > div {
-  box-sizing: border-box;
-  flex: 1;
-  padding: 0 20px;
-}
-
-.content > div.border {
-  border-right: solid 1px #17519c;
-}
-
-.content p {
-  color: white;
-  text-align: center;
-  font-size: 0.3em;
-  height: 2.2em;
-}
-
-ul {
-  list-style: none;
-  font-size: 0.25em;
-  text-align: center;
-  padding: 0;
-}
-
-li {
-  border-bottom: solid 1px #17519c;
-}
-
-a, a:link {
-  color: #a5c4ec;
-  text-decoration: none;
-  opacity: 0.8;
 }
