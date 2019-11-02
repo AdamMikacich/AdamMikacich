@@ -348,8 +348,8 @@ $(document).ready(function() {
 	// This gets the alertDuplicate HTML
 	var alertDuplicate = $('.alertDuplicate').html();
 	
-	var beepSound = new Audio('./../sounds/beep.wav'); 
-	$(beepSound).animate({volume: 1 * settings.volume * settings.maxAudio}, 0);
+	var beepAudio = document.getElementById('beepAudio');
+	$(beepAudio).animate({volume: 1 * settings.volume * settings.maxAudio}, 0);
 	
 	// Desktop effects including alerts, sounds, and strobes.
 	var effects = {
@@ -373,8 +373,8 @@ $(document).ready(function() {
 		alertSound: function() {
 			if (effects.alertSoundVar < 15) {
 				effects.alertSoundVar++;
-				beepSound.currentTime = 0;
-				beepSound.play();
+				beepAudio.currentTime = 0;
+				beepAudio.play();
 				setTimeout(function() {
 					effects.alertSound();
 				}, 150);
@@ -417,9 +417,9 @@ $(document).ready(function() {
 		},
 		restart: function() {
 			$(backgroundAudio).animate({volume: 0}, 1000);
-			var suspenseSound = new Audio('../sounds/suspense.wav'); 
-			$(suspenseSound).animate({volume: 1 * settings.volume}, 0);
-			suspenseSound.play();
+			var suspenseAudio = document.getElementById('suspenseAudio');
+			$(suspenseAudio).animate({volume: 1 * settings.volume}, 0);
+			suspenseAudio.play();
 			$('body').css({'filter': 'opacity(100%)', 'background': 'rgb(0, 0, 0)'});
 			$('.screen').css({'filter': 'opacity(100%)', 'background': 'rgb(0, 0, 0)'});
 			$('.screen').animate({'opacity': 0}, 2000);
@@ -593,7 +593,8 @@ $(document).ready(function() {
 	*/
 	
 	// SPoOky background music - Yes I made it!
-    var backgroundAudio = new Audio('./../sounds/spacyyy.wav'); 
+	var backgroundAudio = document.getElementById('backgroundAudio');
+	backgroundAudio.volume = 0;
     backgroundAudio.addEventListener('ended', function() {
     	this.currentTime = 0;
     	this.play();
