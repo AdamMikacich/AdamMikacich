@@ -1,0 +1,437 @@
+/* Hide game on load */
+.bitGame {
+    opacity: 0;
+}
+
+/* Animate in bits when created */
+@keyframes bitFade {
+    0% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+/* Each bit design */
+.bit {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 50px;
+
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+
+    transform: rotateX(0deg);
+    animation-name: bitFade;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    text-align: center;
+
+    opacity: 1 ;
+    color: #eaa;
+    border-radius: 10px;
+    background-color: #212;
+    box-shadow: 0 0 10px 0 #000;
+    text-shadow: 0 0 20px #f00;
+}
+
+/* All visible orbs */
+.orb {
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+}
+
+/* The single orb that is the actual orb moved with the cursor */
+#orb {
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+/* List of orbs */
+.orbs {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.orbs .orb {
+    position: absolute;
+
+    display: inline-block;
+
+    cursor: pointer;
+    transform: translate(-50%, 0);
+}
+
+.classGreen {
+    background: -webkit-radial-gradient(#ccc, #49fc00, transparent);
+    background:      -o-radial-gradient(#ccc, #49fc00, transparent);
+    background:    -moz-radial-gradient(#ccc, #49fc00, transparent);
+    background:         radial-gradient(#ccc, #49fc00, transparent);
+    box-shadow: 0 0 10px 0 rgba(0, 255, 0, .3);
+}
+
+.classWhite {
+    background: -webkit-radial-gradient(#ccc, #eee, transparent);
+    background:      -o-radial-gradient(#ccc, #eee, transparent);
+    background:    -moz-radial-gradient(#ccc, #eee, transparent);
+    background:         radial-gradient(#ccc, #eee, transparent);
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, .3);
+}
+
+.classPurple {
+    background: -webkit-radial-gradient(#ccc, #b300fc, transparent);
+    background:      -o-radial-gradient(#ccc, #b300fc, transparent);
+    background:    -moz-radial-gradient(#ccc, #b300fc, transparent);
+    background:         radial-gradient(#ccc, #b300fc, transparent);
+    box-shadow: 0 0 10px 0 rgba(255, 0, 255, .3);
+}
+
+/* Animate shield when created */
+@keyframes growShield {
+    0% {
+        width: 50px;
+        height: 50px;
+        margin-top: 0;
+        margin-left: 0;
+
+        opacity: 1;
+    }
+    20% {
+        width: 250px;
+        height: 250px;
+        margin-top: -100px;
+        margin-left: -100px;
+
+        opacity: 1;
+    }
+    100% {
+        width: 250px;
+        height: 250px;
+        margin-top: -100px;
+        margin-left: -100px;
+
+        opacity: 0;
+    }
+}
+
+/* Each shield design */
+.shield {
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+    margin-top: -125px;
+    margin-left: -125px;
+
+    animation-name: growShield;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+
+    opacity: 0;
+    border-radius: 50%;
+    background: -webkit-radial-gradient(transparent 50%, rgba(255, 255, 255, .7));
+    background:      -o-radial-gradient(transparent 50%, rgba(255, 255, 255, .7));
+    background:    -moz-radial-gradient(transparent 50%, rgba(255, 255, 255, .7));
+    background:         radial-gradient(transparent 50%, rgba(255, 255, 255, .7));
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, .3);
+}
+
+/* Display overlay design */
+.display {
+    position: absolute;
+
+    box-sizing: border-box;
+    height: 75px;
+    padding: 10px;
+
+    background-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 2.5px 5px 0 rgba(0, 0, 0, .4);
+}
+
+/* Health display/Batter display */
+.healthContainer {
+    right: 0;
+    bottom: 50px;
+
+    width: 210px;
+
+    border-radius: 10px 0 0 0;
+}
+
+.health {
+    display: inline-block;
+
+    color: #fff;
+}
+
+.health i {
+    font-size: 30px;
+    line-height: 60px;
+
+    vertical-align: top;
+}
+
+.health div {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    font-weight: 200;
+
+    display: inline-block;
+
+    margin-left: 20px;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Charge display */
+.chargeContainer {
+    bottom: 50px;
+    left: 0;
+
+    width: 210px;
+
+    border-radius: 0 10px 0 0;
+}
+
+.chargeBackground {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+
+    border: solid 2px rgba(255, 255, 255, .5);
+    border-radius: 50px;
+}
+
+.charge {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.charge div {
+    box-sizing: border-box;
+    width: 0;
+    min-width: 30px;
+    height: 100%;
+
+    border-radius: inherit;
+    background-color: rgba(64, 127, 255, .7);
+}
+
+/* Coins display */
+.coinsContainer {
+    top: 0;
+    right: 0;
+
+    width: 150px;
+
+    border-radius: 0 0 0 10px;
+}
+
+.coins {
+    display: inline-block;
+
+    color: #fff;
+}
+
+.coins i {
+    font-size: 30px;
+    line-height: 60px;
+
+    vertical-align: top;
+}
+
+/* Make bitcoin logo orange */
+.fa-bitcoin {
+    color: #fb3;
+}
+
+.coins div {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 200;
+
+    display: inline-block;
+
+    margin-left: 20px;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Level display */
+.levelContainer {
+    top: 0;
+    left: 0;
+
+    width: 150px;
+
+    border-radius: 0 0 10px 0;
+}
+
+.level {
+    display: inline-block;
+
+    color: #fff;
+}
+
+.level i {
+    font-size: 30px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 60px;
+
+    vertical-align: top;
+
+    color: #fb3;
+}
+
+.level div {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 200;
+
+    display: inline-block;
+
+    margin-left: 20px;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Round display */
+.roundContainer {
+    top: 0;
+    left: calc(50% - 150px);
+
+    width: 300px;
+    height: 50px;
+
+    border-radius: 0 0 10px 10px;
+}
+
+.round h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+
+    margin-top: 0;
+
+    text-align: center;
+
+    color: #fff;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Items display */
+.itemsContainer {
+    z-index: 10000;
+    bottom: 50px;
+    left: calc(50% - 150px);
+
+    overflow: hidden;
+
+    width: 300px;
+    height: 40px;
+    padding: 10px 0 0 0;
+
+    border-radius: 10px 10px 0 0;
+}
+
+.items h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+
+    width: calc(100% - 50px);
+    margin: 0 0 0 25px;
+
+    cursor: pointer;
+    text-align: center;
+
+    color: #fff;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0);
+
+    -webkit-font-smoothing: antialiased;
+}
+
+.item {
+    font-size: 24px;
+    line-height: 50px;
+
+    display: inline-block;
+
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+
+    cursor: pointer;
+    text-align: center;
+
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+/* CPrices listed under items */
+.price {
+    font-size: 24px;
+
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 120px;
+    margin-top: 10px;
+    padding: 10px;
+
+    text-align: center;
+
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.price i {
+    margin-right: 5px;
+}
+
+.price:not(i) {
+    color: #fff;
+}
+
+/* Descriptions listed under items */
+.description {
+    font-size: 16px;
+
+    position: relative;
+    top: 10px;
+
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 120px;
+    height: 115px;
+    padding: 10px;
+
+    text-align: center;
+    vertical-align: top;
+
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .3);
+	
+	color: #fff;
+}

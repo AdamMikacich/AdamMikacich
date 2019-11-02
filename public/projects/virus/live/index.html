@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+	<head>
+		<!--
+	          _                 
+     /\      | |                
+    /  \   __| | __ _ _ __ ___  
+   / /\ \ / _` |/ _` | '_ ` _ \ 
+  / ____ \ (_| | (_| | | | | | |
+ /_/    \_\__,_|\__,_|_| |_| |_|                        
+  __  __ _ _              _      _     
+ |  \/  (_) |            (_)    | |    
+ | \  / |_| | ____ _  ___ _  ___| |__  
+ | |\/| | | |/ / _` |/ __| |/ __| '_ \ 
+ | |  | | |   < (_| | (__| | (__| | | |
+ |_|  |_|_|_|\_\__,_|\___|_|\___|_| |_|
+                                       
+		-->
+		<!--
+		Copyright 2017 Adam Mikacich
+		-->
+		<meta charset="utf-8">
+		<title>Don't Get a Virus</title>
+		<!-- JQUERY JS --><script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<!-- JQUERY UI JS --><script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<!-- JQUERY UI CSS --><link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<!-- FONT AWESOME --><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- GOOGLE FONTS --><link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700,900" rel="stylesheet">
+		
+		<link rel="stylesheet" type="text/css" href="./css/index.css">
+		<link rel="stylesheet" type="text/css" href="./css/browser.css">
+		<link rel="stylesheet" type="text/css" href="./css/glitch.css">
+		<link rel="stylesheet" type="text/css" href="./css/game.css">
+		<script src="./js/index.js"></script>
+	</head>
+	<body>
+		<!-- Start screen -->
+		<div class="start">
+			<div class="startFade">
+				<p class="title animated">DON'T GET A <span class="glitch" data-text="VIRUS">VIRUS</span></p>
+				<div class="startGameContainer animated">
+					<button class="startGame animated"><i class="fa fa-power-off" aria-hidden="true"></i></button>
+				</div>
+			</div>
+		</div>
+		<!-- Displayed when the OS restarts -->
+		<div class="restarting">
+			<h1>Restarting <i class="fa fa-spinner fa-spin" fa-spin aria-hidden="true"></i></h1>
+		</div>
+		<!-- Overlay displayed if user loses -->
+		<div class="lost">
+			<div>
+				<h1>YOU LOST</h1>
+				<p>You will never gain access<br>back to your computer...</p>
+			</div>
+		</div>
+		<!-- bitGame div contains the whole entire game overlay for the screen -->
+		<div class="bitGame">
+			<div class="bits"></div>
+			<div id="orb" class="orb"></div>
+			<div class="shields"></div>
+			<div class="display healthContainer">
+				  <div class="health">
+				    <span class="updateBattery"><i class="fa fa-battery"></i></span><div>100%</div>
+				</div>
+			</div>
+			<div class="display chargeContainer">
+				<div class="chargeBackground">
+				    <div class="charge">
+				      	<div></div>
+				    </div>
+				</div>
+			</div>
+			<div class="display coinsContainer">
+				<div class="coins">
+				    <i class="fa fa-bitcoin"></i><div>0</div>
+				</div>
+			</div>
+			<div class="display levelContainer">
+				  <div class="level">
+				    <i>L</i><div>1</div>
+				</div>
+			</div>
+			<div class="display roundContainer">
+				<div class="round">
+				    <h4>ROUND 1</h4>
+				</div>
+			</div>
+			<div class="display itemsContainer">
+				<div class="items">
+				    <h4 class="openItems">Click to Purchase Items</h4>
+				    <i class="item fa fa-battery" style="margin-left: 60px" title="Purchase Battery"></i><!--
+				 --><i class="item fa fa-calculator" style="margin-left: 80px" title="Purchase Calculator"></i><!--
+				 --><div class="price" style="margin-left: calc(33.3333% - 75px)"><i class="fa fa-bitcoin"></i>100</div><!--
+				 --><div class="price" style="margin-left: calc(33.3333% - 90px)"><i class="fa fa-bitcoin"></i>300</div><!--
+				 --><div class="description" style="margin-left: calc(33.3333% - 75px)">Battery Bank adds 1% battery every 5 seconds</div><!--
+				 --><div class="description" style="margin-left: calc(33.3333% - 90px)">Calculator speeds up charge time via faster calculations</div>
+				 	<h4 class="closeItems" style="margin-top: 20px">Close and Resume</h4>
+				</div>
+			</div>
+		</div>
+		<!-- The 'monitor' container of the whole OS -->
+		<div class="screen"><!--
+			 --><div class="programContainer"><!--
+				 --><div class="program programBrowser" data-window="Browser"><!--
+					 --><div class="menubar"><!--
+						 --><div class="menuIcons menuLeft">
+							<i class="menuIcon fa fa-window-minimize" aria-hidden="true"></i>
+							<i class="menuIcon fa fa-window-maximize" aria-hidden="true"></i>
+							<i class="menuIcon fa fa-close" aria-hidden="true"></i>
+						</div><!--
+					 --></div><!--
+					 --><div class="searchbar"><!--
+						 --><i class="icon fa fa-refresh" aria-hidden="true"></i><!--
+						 --><input placeholder="Search or enter a web address"><!--
+						 --><div class="website"></div><!--
+					 --></div>
+						<div class="websiteContainer">
+							<!-- Remove my virus website -->
+							<div class="website websiteRemovemyvirus">
+								<div>
+									<h1>REMOVE YOUR VIRUS NOW</h1>
+									<p>NO CREDIT CARD REQUIRED</p>
+									
+									<i class="fa fa-arrow-down" aria-hidden="true"></i>
+									<button id="downloadVirus">VIRUS FREE DOWNLOAD</button>
+									<i class="fa fa-arrow-up" aria-hidden="true"></i>
+								</div>
+							</div>
+							<!-- Antivirus website - This website is actually not used but might be implemented in the future -->
+							<div class="website websiteAntivirus">
+								<div class="websiteHeader"><i class="fa fa-shield" aria-hidden="true"></i></div>
+								<h1>NoVirus</h1>
+								<p>#1 AntiVirus Solution</p>
+								<button id="antivirusDownload">DOWNLOAD</button>
+							</div>
+							<!-- This iframe website is used for any website online -->
+							<div class="website anyWebsite">
+								<iframe src=''></iframe>
+							</div>
+							<!-- 404 website -->
+							<div class="website websiteNotfound">
+								<h1>404</h1>
+							</div>
+						</div><!--
+				 --></div><!--
+				 --><div class="program programMessenger" data-window="Messenger"><!--
+					 --><div class="menubar"><!--
+					   	 --><div class="menuIcons menuLeft">
+							<i class="menuIcon fa fa-window-minimize" aria-hidden="true"></i>
+							<i class="menuIcon fa fa-window-maximize" aria-hidden="true"></i>
+							<i class="menuIcon fa fa-close" aria-hidden="true"></i>
+						</div><!--
+					 --></div><!--
+					 --><div class="messengerContainer">
+							<div class="messengerName"><i class="fa fa-comments" aria-hidden="true"></i> Unknown</div>
+							<ul class="messages"></ul>
+							<input class="messengerInput" placeholder="Chat...">
+						</div><!--
+				 --></div><!--
+				 --><div class="program programVirus" data-window="Virus"><!--
+					 --><div class="menubar"><!--
+						 --><div class="menuIcons menuLeft">
+								<i class="menuIcon fa fa-window-minimize" aria-hidden="true"></i>
+								<i class="menuIcon fa fa-window-maximize" aria-hidden="true"></i>
+								<i class="menuIcon fa fa-close" aria-hidden="true"></i>
+							</div><!--
+					 --></div><!--
+					 --><div class="virusContainer">
+					 		<h1><span class="glitch" data-text="VIRUS">VIRUS</span></h1>
+					 		<div class="virusUpdate">
+					 			<!-- Page one to choose orb -->
+					 			<div class="pageOne">
+								 	<p>Your computer has been infected with ransomware! In order to regain access to your computer, you must earn 250 bitcoin. In order to do so, you must first select an orb.</p>
+								 	<div class="orbs">
+								 		<div class="orb classPurple" data-class="purple" style="left: 25%;"></div><h2 class="ability" style="margin-left: calc(25%)"><span>ABILITY</span><br>Two times FASTER Shield Regeneration</h2>
+								 		<div class="orb classWhite" data-class="white" style="left: 50%;"></div><h2 class="ability" style="margin-left: calc(50%)"><span>ABILITY</span><br>Freeze enemies for five seconds TWICE per round. Use the key F to Freeze!</h2>
+								 		<div class="orb classGreen" data-class="green" style="left: 75%;"></div><h2 class="ability" style="margin-left: calc(75%)"><span>ABILITY</span><br>Three times LONGER Shield Duration</h2>
+							 		</div>
+					 			</div>
+					 			<!-- Page two to read instructions -->
+					 			<div class="pageTwo">
+								 	<p>Bits will fly towards your orb and you must prevent them from coming into contact with the orb or you will lose battery power! (Battery power visible at bottom right)</p>
+								 	<br><br>
+								 	<p>Press the Spacebar to summon a shield around your orb. You can only do this when your charge is at 100%. (Charge visible at bottom left)</p>
+								 	<br><br>
+								 	<p>Earn bitcoin by destroying bits with your shield by pressing the spacebar when you have 100% charge. (Bitcoin visible at top right)</p>
+								 	<br><br>
+								 	<p>The longer you last in a round the higher you level up. A higher level is proportional to your charge regeneration speed. (Level visible at top left)</p>
+								 	<br><br>
+								 	<p>WARNING! 0 bits cause 1% of damage while 1 bits cause 5% of damage!</p>
+								 	<button class="startBitGame"><span class="glitch" data-text="FIGHT">FIGHT</span></button>
+					 			</div>
+					 			<!-- Page three only shown if player wins -->
+					 			<div class="pageThree">
+								 	<p>It seems you have WON! You may now have full access to your computer now.</p>
+								 	<br>
+								 	<p>PS.. Try https://www.y8.com in your browser... (Don't forget the https://www)</p>
+								 	<button class="okay"><span class="glitch" data-text="k.">k.</span></button>
+					 			</div>
+							</div>
+						</div>
+					</div><!--
+				 --><div class="program programAntivirus" data-window="Antivirus"><!--
+					 --><div class="menubar"><!--
+						 --><div class="menuIcons menuLeft">
+								<i class="menuIcon fa fa-window-minimize" aria-hidden="true"></i>
+								<i class="menuIcon fa fa-window-maximize" aria-hidden="true"></i>
+								<i class="menuIcon fa fa-close" aria-hidden="true"></i>
+							</div><!--
+					 --></div><!--
+					 --><div class="antivirusContainer">
+							
+						</div>
+					</div>
+				</div>
+				<!-- Alert overlay -->
+				<div class="alertSpamContainer">
+					<div class="alertDuplicate">
+						<div class="alert">
+							<div class="menubar"><!--
+							 --><div class="menuIcons menuLeft">
+									<i class="menuIcon fa fa-window-minimize" aria-hidden="true"></i>
+									<i class="menuIcon fa fa-window-maximize" aria-hidden="true"></i>
+									<i class="menuIcon fa fa-close" aria-hidden="true"></i>
+								</div><!--
+						 --></div>
+						 	<div>
+								<h1>WARNING</h1>
+							</div>
+						</div>
+					</div>
+					<!-- Container that contains the spammed alerts -->
+					<div class="alerts"></div>
+				</div>
+				<div class="notificationsContainer">
+					<ul class="notifications"></ul>
+				</div><!--
+			 --><div class="taskbar"><!-- Windows taskbar
+				 --><div class="icons taskbarLeft">
+						<i class="icon fa fa-windows" aria-hidden="false" data-icon="Windows"></i>
+						<i class="icon fa fa-circle-o" aria-hidden="false" data-icon="Assistant"></i>
+						<i class="icon fa fa-edge" aria-hidden="false" data-icon="Browser"></i>
+						<i class="icon fa fa-skype" aria-hidden="false" data-icon="Messenger"></i>
+					</div><!--
+					 --><div class="icons taskbarRight">
+						<i class="icon fa fa-chevron-up" aria-hidden="true"></i>
+						<i class="icon fa fa-volume-up" aria-hidden="true"></i>
+						<span class="updateBattery"><i class="fa fa-battery"></i></span>
+					</div><!--
+			 --></div><!--
+		 --></div>
+	</body>
+</html>

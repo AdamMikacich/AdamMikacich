@@ -72,6 +72,7 @@ body {
 .content > div {
   box-sizing: border-box;
   flex: 1;
+  padding: 0 20px;
 }
 
 .content > div.border {
@@ -81,5 +82,22 @@ body {
 .content p {
   color: white;
   text-align: center;
+  font-size: 0.3em;
+}
+
+ul {
+  list-style: none;
   font-size: 0.25em;
+  text-align: center;
+  padding: 0;
+}
+
+li {
+  border-bottom: solid 1px #17519c;
+}
+
+a, a:link {
+  color: #a5c4ec;
+  text-decoration: none;
+  opacity: 0.8;
 }

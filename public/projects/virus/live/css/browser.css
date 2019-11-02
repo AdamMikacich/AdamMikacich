@@ -1,0 +1,215 @@
+/* CSS Document */
+
+@keyframes blinkRed {
+    0% {
+        color: red;
+    }
+    49% {
+        color: red;
+    }
+    50% {
+        color: black;
+    }
+    100% {
+        color: black;
+    }
+}
+
+/* Top of each website */
+.websiteHeader {
+    width: 100%;
+    height: 50px;
+
+    background: #eee;
+}
+
+.websiteHeader i {
+    font-size: 36px;
+
+    padding: 5px;
+
+    color: #60f;
+}
+
+/* Antivirus website design */
+.websiteAntivirus {
+    background: #f9f9f9;
+}
+
+.websiteAntivirus button {
+    font-size: 24px;
+    font-weight: 900;
+
+    margin: 10px 50px;
+    padding: 20px;
+
+    transition: all .3s;
+
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+    background: #60f; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(-90deg, #00f, #60f); /* For Safari 5.1 to 6.0 */
+    background:      -o-linear-gradient(-90deg, #00f, #60f); /* For Opera 11.1 to 12.0 */
+    background:    -moz-linear-gradient(-90deg, #00f, #60f); /* For Firefox 3.6 to 15 */
+    background:         linear-gradient(-90deg, #00f, #60f); /* Standard syntax */
+    box-shadow: 0 5px 5px 0 #ccc;
+}
+
+.websiteAntivirus button:hover {
+    margin: 13px 50px;
+    padding: 20px;
+
+    box-shadow: 0 3px 5px 0 #ccc;
+}
+
+.websiteAntivirus button:active {
+    margin: 15px 50px;
+    padding: 20px;
+
+    box-shadow: 0 0 5px 0 #ccc;
+}
+
+/* 404 Website design */
+.websiteNotfound h1 {
+    font-size: 128px;
+
+    margin: auto;
+}
+
+/* Remove my virus website design */
+.websiteRemovemyvirus {
+    font-family: serif;
+
+    min-height: 600px;
+
+    background: -webkit-linear-gradient(-90deg, red, blue); /* For Safari 5.1 to 6.0 */
+    background:      -o-linear-gradient(-90deg, red, blue); /* For Opera 11.1 to 12.0 */
+    background:    -moz-linear-gradient(-90deg, red, blue); /* For Firefox 3.6 to 15 */
+    background:         linear-gradient(-90deg, red, blue); /* Standard syntax */
+}
+
+.websiteRemovemyvirus div {
+    position: absolute;
+
+    box-sizing: border-box;
+    width: calc(100% - 100px);
+    height: 100%;
+    margin: 0 50px;
+    padding: 10px;
+
+    background-color: transparent;
+}
+
+.websiteRemovemyvirus h1,
+.websiteRemovemyvirus p {
+    box-sizing: border-box;
+    padding: 20px;
+
+    color: #fff;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .5);
+
+    -webkit-font-smoothing: antialiased;
+}
+
+.websiteRemovemyvirus button {
+    font-family: serif;
+    font-size: 24px;
+
+    margin: 20px auto;
+    padding: 10px;
+
+    color: white;
+    border: solid 1px red;
+    border-radius: 5px;
+    outline: 0;
+    background-color: red;
+}
+
+.websiteRemovemyvirus button:hover {
+    color: red;
+    background-color: black;
+}
+
+.websiteRemovemyvirus i {
+    font-size: 48px;
+    line-height: 70px;
+
+    display: block;
+
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+
+    animation-name: blinkRed;
+    animation-duration: .25s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    letter-spacing: 3px;
+}
+
+/* Adapting website that changes to an iframe website */
+.anyWebsite {
+    overflow: hidden;
+}
+
+.anyWebsite iframe {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+/* Blinking shadow for warning alert */
+@keyframes shadow {
+    0% {
+        color: #f0ff00;
+        box-shadow: 0 0 10px 5px #f0ff00;
+        text-shadow: 0 0 10px #f0ff00;
+    }
+    50% {
+        color: #fff;
+        box-shadow: 0 0 0 0 #fff;
+        text-shadow: 0 0 10px #fff;
+    }
+    100% {
+        color: #ffbe00;
+        box-shadow: 0 0 0 0 #ffbe00;
+        text-shadow: 0 0 10px #ffbe00;
+    }
+}
+
+/* Alert duplicate design*/
+.alert {
+    position: absolute;
+    z-index: 10;
+
+    width: 300px;
+    height: 200px;
+
+    background-color: #000;
+}
+
+.alert h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100px;
+
+    box-sizing: border-box;
+    width: calc(100% - 60px);
+    height: 100px;
+    margin: 30px;
+
+    animation-name: shadow;
+    animation-duration: .25s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    text-align: center;
+    letter-spacing: 3px;
+
+    color: white;
+    border-radius: 10px;
+    background-color: red;
+}

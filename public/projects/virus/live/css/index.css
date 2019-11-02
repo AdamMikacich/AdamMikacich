@@ -1,0 +1,776 @@
+/* CSS Document */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+
+    overflow: hidden;
+
+    width: 100vw;
+    height: 100vh;
+    margin: 0 !important;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    opacity: 0;
+    background-color: #000;
+}
+
+.windowsBackground {
+    background: url('./../images/windows10.jpg') center right no-repeat;
+    background-size: cover;
+}
+
+/* Start Menu */
+.start {
+    position: absolute;
+    z-index: 10;
+
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #111;
+}
+
+/* Animation tilts */
+@keyframes tilt {
+    0% {
+        font-size: 30px;
+
+        transform: rotate(3deg);
+    }
+    50% {
+        font-size: 48px;
+
+        transform: rotate(-3deg);
+    }
+    100% {
+        font-size: 30px;
+
+        transform: rotate(3deg);
+    }
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: calc(100% + 20px);
+
+    position: absolute;
+
+    width: 500px;
+    margin-left: calc(50vw - 250px);
+
+    animation-name: tilt;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    text-align: center;
+
+    color: #fff;
+}
+
+/* Span is the VIRUS text */
+.title span {
+    font-size: 124px;
+
+    letter-spacing: 10px;
+}
+
+/* Creates spinning box shadow */
+@keyframes buttonBoxShadow {
+    0% {
+        box-shadow: 2.5px 2.5px 5px 0 #ccc;
+    }
+    25% {
+        box-shadow: -2.5px 2.5px 5px 0 #ccc;
+    }
+    50% {
+        box-shadow: -2.5px -2.5px 5px 0 #ccc;
+    }
+    75% {
+        box-shadow: 2.5px -2.5px 5px 0 #ccc;
+    }
+    100% {
+        box-shadow: 2.5px 2.5px 5px 0 #ccc;
+    }
+}
+
+.startGameContainer {
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+    margin-top: calc(50vh - 75px);
+    margin-left: calc(50vw - 75px);
+
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+/* Start game button */
+.startGame {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    margin: calc(50% - 50px) 0 0 calc(50% - 50px);
+
+    cursor: pointer;
+    animation-name: buttonBoxShadow;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    background-color: #fff;
+    box-shadow: 2.5px 2.5px 5px 0 #ccc;
+}
+
+.startGame:hover {
+    animation-duration: .5s;
+}
+
+/* Change shade of blue and purple */
+@keyframes colorify {
+    0% {
+        color: #7a00cc;
+    }
+    50% {
+        color: #c533ff;
+    }
+    100% {
+        color: #7a00cc;
+    }
+}
+
+.startGame i {
+    font-size: 2em;
+
+    transition: all .3s;
+    animation-name: colorify;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    color: #39f;
+}
+
+.startGame:hover i {
+    font-size: 3em;
+}
+
+/* Windows 10 monitor */
+.screen {
+    position: absolute;
+
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Taskbar container */
+.taskbar {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+
+    color: #fff;
+    background: rgba(0, 0, 0, .5);
+}
+
+.taskbar:before,
+.taskbar:after {
+    display: block;
+    clear: both;
+
+    width: 100%;
+
+    content: '';
+}
+
+/* Icons inside taskbar */
+.icons {
+    display: inline-flex;
+
+    box-sizing: border-box;
+    width: 50vw;
+    margin: 0;
+    padding: 0;
+}
+
+/* Left side of taskbar */
+.taskbarLeft {
+    justify-content: flex-start;
+}
+
+/* Right side of taskbar */
+.taskbarRight {
+    padding-right: 10px;
+
+    justify-content: flex-end;
+}
+
+/* Each icon in the taskbar */
+.icons i,
+.icon {
+    font-size: 1.25em;
+
+    position: relative;
+
+    display: inline-flex;
+
+    width: 50px;
+    height: 50px;
+
+    -webkit-transition: background .2s ease-out;
+            transition: background .2s ease-out;
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.taskbarRight .icon {
+    font-size: 1em;
+
+    width: 40px;
+}
+
+.icon:hover {
+    -webkit-transition: background .1s ease-in-out;
+            transition: background .1s ease-in-out;
+
+    background: rgba(255, 255, 255, .1);
+}
+
+/* Underline effect on active apps */
+.iconActive:after {
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    left: 5px;
+
+    display: block;
+
+    height: 2px;
+
+    content: '';
+    -webkit-transition: all .15s ease-out;
+            transition: all .15s ease-out;
+
+    background: rgba(255, 255, 255, .5);
+}
+
+.iconActive:hover:after {
+    right: 0;
+    left: 0;
+
+    -webkit-transition: all .15s ease-out;
+            transition: all .15s ease-out;
+}
+
+@keyframes transformAnimation {
+    0% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+/* Notifications on the side of the screen */
+.notifications {
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    width: 350px;
+    height: calc(100vh - 70px);
+    margin: 0;
+    margin-left: calc(100vw - 370px);
+    padding: 0;
+
+    list-style: none;
+}
+
+/* Individual notification element */
+.notifications li {
+    font-family: 'Open Sans', sans-serif;
+
+    z-index: 9999;
+
+    display: block;
+
+    margin-top: 10px;
+    padding: 20px;
+
+    cursor: pointer;
+    transform: rotateX(0deg);
+    animation-name: transformAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+
+    color: #fcfcfc;
+    border: solid 1px #333;
+    background-color: #1f1f1f;
+
+    animation-fill-mode: forwards;
+}
+
+/* Icon for each notification */
+.notifications i {
+    font-size: 36px;
+
+    display: inline-block;
+
+    width: 30px;
+    padding: 0 20px 0 0;
+
+    vertical-align: middle;
+}
+
+.notifications li span {
+    display: block;
+
+    margin-left: 50px;
+
+    color: #9c9c9c;
+    background-color: #1f1f1f;
+}
+
+/* Contains all the programs */
+.programContainer {
+    position: absolute;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+    width: 100vw;
+    height: calc(100vh - 50px);
+}
+
+/* Default program design */
+.program {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: 50px;
+
+    box-sizing: border-box;
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
+
+    border: solid 1px #1883d7;
+    background-color: #f2f2f2;
+}
+
+/* Menu icons container */
+.menuIcons {
+    display: inline-flex;
+
+    width: 100%;
+
+    background-color: #ccc;
+
+    align-items: right;
+    justify-content: flex-end;
+}
+
+/* Menu icon for programs: _ [] x */
+.menuIcon {
+    font-size: 1.25em;
+
+    width: 20px;
+    padding: 6px;
+
+    text-align: center;
+
+    color: #111;
+}
+
+.menuIcon:hover {
+    background-color: #b3b3b3;
+}
+
+.ui-icon,
+.ui-widget-content .ui-icon {
+    background-image: none;
+}
+
+/* These all make the font-weight of the icons lighter */
+.fa-window-minimize {
+    -webkit-text-stroke: 4px #ccc;
+}
+.fa-window-minimize:hover {
+    -webkit-text-stroke: 4px #b3b3b3;
+}
+.fa-window-maximize {
+    -webkit-text-stroke: 2px #ccc;
+}
+.fa-window-maximize:hover {
+    -webkit-text-stroke: 2px #b3b3b3;
+}
+.fa-close {
+    -webkit-text-stroke: 3px #ccc;
+}
+.fa-close:hover {
+    -webkit-text-stroke: 3px #b3b3b3;
+}
+.fa-refresh {
+    cursor: pointer;
+
+    color: #333;
+
+    -webkit-text-stroke: 1px #f2f2f2;
+}
+
+/* Searchbar for browser */
+.searchbar {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 0 5px 0;
+
+    border-bottom: solid 1px #ccc;
+}
+
+.searchbar .fa-refresh {
+    width: 50px;
+    height: 30px;
+
+    vertical-align: middle;
+}
+
+.searchbar input {
+    display: inline-flex;
+
+    box-sizing: border-box;
+    width: calc(100% - 70px);
+    padding: 7px;
+
+    border: solid 1px #ccc;
+}
+
+/* Contains all websites */
+.websiteContainer {
+    position: absolute;
+
+    overflow-y: scroll;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100% - 73px);
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+}
+
+/* Each individual website */
+.website {
+    position: absolute;
+
+    width: 100%;
+}
+
+/* Messenger program container */
+.messengerContainer {
+    box-sizing: border-box;
+    width: calc(100% - 40px);
+    height: calc(100% - 75px);
+    margin: 20px;
+
+    background-color: #fff;
+}
+
+/* Name of person the user is talking to */
+.messengerName {
+    font-size: 24px;
+    font-weight: 100;
+
+    padding: 10px;
+
+    text-align: center;
+
+    color: #333;
+    border-bottom: solid 1px #ccc;
+}
+.messengerName i {
+    color: #189bcb;
+}
+
+/* List of messages */
+.messages {
+    overflow-y: scroll;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100% - 85px);
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+/* Thicken the users' name in messages */
+.messages span {
+    font-weight: 400;
+
+    color: #189bcb;
+}
+
+/* Each individual message */
+.messages li {
+    margin: 10px;
+    padding: 10px 10px;
+
+    transform: rotateX(0deg);
+    animation-name: transformAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    text-align: left;
+
+    color: #111;
+    border-radius: 5px;
+    background-color: #def7fc;
+}
+
+/* Darken even messages for readability */
+.messages li:nth-child(even) {
+    background-color: #b6eefd;
+}
+
+/* Respond box for messenger */
+.messengerInput {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+
+    border: 0;
+    border: solid 1px #ccc;
+    outline: 0;
+    background-color: #fff;
+}
+
+/* Restarting view */
+.restarting {
+    position: absolute;
+    z-index: 10000;
+
+    opacity: 0;
+}
+
+.restarting h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+
+    width: 300px;
+    height: 40px;
+    margin-top: 0;
+    margin-top: calc(50vh - 20px);
+    margin-left: calc(50vw - 150px);
+
+    text-align: center;
+
+    color: white;
+}
+
+/* Virus program */
+.programVirus {
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+/* Virus program container */
+.virusContainer {
+    position: relative;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    width: 100%;
+    height: calc(100% - 32px);
+
+    background-color: #200020;
+}
+
+.virusContainer::-webkit-scrollbar {
+    width: 15px;
+}
+.virusContainer::-webkit-scrollbar-track {
+    background-color: #101;      /* bar */
+}
+.virusContainer::-webkit-scrollbar-thumb {
+    background-color: #323;      /* bar */
+}
+.virusContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #434;        /* bar hover */
+}
+
+.virusContainer h1 {
+    font-size: 150px;
+    font-weight: 900;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+    letter-spacing: 10px;
+
+    color: rgba(255, 255, 255, .8);
+    text-shadow: 0 0 40px #b300fc;
+}
+
+.virusContainer p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 200%;
+
+    margin: 10px 40px;
+
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: white;
+    text-shadow: 0 0 40px #b300fc;
+}
+
+/* Abilties listed under orbs */
+.ability span {
+    font-weight: 700;
+    line-height: 300%;
+
+    text-shadow: 0 0 40px #b300fc;
+}
+
+.ability {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+
+    position: absolute;
+
+    display: inline-block;
+
+    width: 200px;
+
+    transform: translate(-50%, 70px);
+    text-align: center;
+    text-transform: uppercase;
+
+    color: white;
+}
+
+/* Player presses button after reading instructions */
+.startBitGame {
+    font-size: 48px;
+    font-weight: 100;
+
+    box-sizing: border-box;
+    width: 300px;
+    height: 70px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: calc(50% - 150px);
+
+    cursor: pointer;
+    transition: all .3s;
+
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+    background-color: #323;
+}
+
+.startBitGame:hover {
+    background-color: #212;
+}
+
+.startBitGame span {
+    font-weight: 800 !important;
+
+    letter-spacing: 5px;
+
+    text-shadow: 0 0 40px #b300fc;;
+}
+
+/* Okay button for getting rid of the virus */
+.okay {
+    font-size: 48px;
+    font-weight: 100;
+
+    box-sizing: border-box;
+    width: 300px;
+    height: 70px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: calc(50% - 150px);
+
+    cursor: pointer;
+    transition: all .3s;
+
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+    background-color: #323;
+}
+
+.okay span {
+    font-weight: 800 !important;
+
+    letter-spacing: 5px;
+
+    text-shadow: 0 0 40px #b300fc;;
+}
+
+/* Overlay displayed when player loses */
+.lost {
+    font-family: 'Montserrat', sans-serif;
+
+    position: absolute;
+
+    width: 100vw;
+    height: 100vh;
+
+    text-align: center;
+
+    opacity: 0;
+    color: white;
+    background-color: #000;
+}
+
+.lost h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+.lost div {
+    width: 250px;
+    height: 150px;
+    margin-top: calc(50vh - 75px);
+    margin-left: calc(50vw - 125px);
+
+    border: solid 1px red;
+    border-radius: 5px;
+}
