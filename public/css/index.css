@@ -14,7 +14,7 @@ body {
   transform: translateY(25vh);
   width: 100vw;
   height: 50vh;
-  color: #000;
+  color: #fff;
 }
 
 .title h1 {
@@ -25,31 +25,15 @@ body {
 }
 
 .projects {
+  background: url('./../imgs/bg.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   position: absolute;
   z-index: -1;
-  margin-top: 0vh;
   width: 100vw;
   height: 100vh;
-}
-
-.bg {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  width: 100vw;
-  height: 50vh;
-  margin-top: 50vh;
-  z-index: -1000;
-  opacity: 0;
-}
-
-.bg img {
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: 100%;
 }
 
 .content {
