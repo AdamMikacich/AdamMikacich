@@ -21,7 +21,7 @@ async function splash() {
   });
 
   anime({
-    targets: '.content',
+    targets: '.content, .bg',
     translateY: ['50vh', 0],
     opacity: [0, 1],
     duration: 1000,

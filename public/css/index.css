@@ -14,7 +14,7 @@ body {
   transform: translateY(25vh);
   width: 100vw;
   height: 50vh;
-  color: #fff;
+  color: #000;
 }
 
 .title h1 {
@@ -28,10 +28,28 @@ body {
   position: absolute;
   z-index: -1;
   margin-top: 0vh;
-  border-top: solid 1px #17519c;
-  background: #1c69ce;
   width: 100vw;
   height: 100vh;
+}
+
+.bg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100vw;
+  height: 50vh;
+  margin-top: 50vh;
+  z-index: -1000;
+  opacity: 0;
+}
+
+.bg img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
 }
 
 .content {
@@ -48,6 +66,8 @@ body {
 
 .content h1, .content h2, .content h3 {
   margin: 10px 0;
+  color: white;
+  text-shadow: 0 0 40px rgba(0, 0, 0, 1);
 }
 
 .content h1 {
@@ -56,7 +76,6 @@ body {
 
 .content h2 {
   font-size: 0.55em;
-  color: #083571;
 }
 
 .content h3 {
