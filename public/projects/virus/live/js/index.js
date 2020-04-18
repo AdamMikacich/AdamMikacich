@@ -402,9 +402,9 @@ $(document).ready(function() {
 				effects.strobeBackgroundVar++;
 				console.log(Math.floor(Math.random(1) * 2));
 				if (Math.floor(Math.random(1) * 2) === 1) {
-					$('body').css({'filter': 'opacity(100%)', 'background': "url('../_images/windows10.jpg') center right no-repeat", 'background-size': "cover"});
+					$('body').css({'filter': 'opacity(100%)', 'background': "url('./images/windows10.jpg') center right no-repeat", 'background-size': "cover"});
 				} else {
-					$('body').css({'filter': 'opacity(100%)', 'background': "url('../_images/glitch.gif') center repeat", 'background-size': "cover"});
+					$('body').css({'filter': 'opacity(100%)', 'background': "url('./images/glitch.gif') center repeat", 'background-size': "cover"});
 				}
 				var waitTime = randomNumber() * 3;
 				setTimeout(function() {
@@ -412,7 +412,7 @@ $(document).ready(function() {
 				}, (waitTime + 10));
 			} else {
 				effects.strobeBackgroundVar = 0;
-				$('body').css({'filter': 'opacity(100%)', 'background': "url('../_images/windows10.jpg') center right no-repeat", 'background-size': "cover"});
+				$('body').css({'filter': 'opacity(100%)', 'background': "url('./images/windows10.jpg') center right no-repeat", 'background-size': "cover"});
 			}
 		},
 		restart: function() {
