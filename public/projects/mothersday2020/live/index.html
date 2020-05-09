@@ -58,15 +58,40 @@ h2 {
   position: fixed;
   width: calc(100vw + 400px);
   left: -200px;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .flowers.top {
+  transform: translateY(-70px) scale(0.9) rotate(180deg);
   top: -12vw;
-  transform: rotate(180deg);
+  animation-name: top;
 }
 
 .flowers.bottom {
-  bottom: -12vw;
+  transform: translateY(10px) scale(0.9);
+  bottom: -14vw;
+  animation-name: bottom;
+  animation-delay: 1s;
+}
+
+@keyframes top {
+  from {
+    transform: translateY(-70px) scale(0.9) rotate(180deg);
+  }
+  to {
+    transform: translateY(10px) scale(1.1) rotate(180deg);
+  }
+}
+
+@keyframes bottom {
+  from {
+    transform: translateY(10px) scale(0.9);
+  }
+  to {
+    transform: translateY(-70px) scale(1.1);
+  }
 }
 </style>
 
