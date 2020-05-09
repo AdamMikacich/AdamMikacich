@@ -9,8 +9,14 @@
 </head>
 <body>
   <div id="content">
-    <h2>Happy</h2>
-    <h1>Mother's Day</h1>
+    <div class="splash">
+      <h2>Happy</h2>
+      <h1>Mother's Day</h1>
+      <img id="activate" src="assets/imgs/arrow-down-solid.svg">
+    </div>
+    <div class="text">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere purus vitae ex tincidunt hendrerit. Nulla nunc arcu, ullamcorper et orci vitae, eleifend suscipit libero. Sed ac massa euismod, euismod tellus vitae, dictum lectus. Suspendisse potenti. Nullam finibus leo non nisl vestibulum, ut tristique tortor fermentum. Integer rutrum condimentum lectus vel molestie. Duis sodales tincidunt ante at aliquam. Aenean commodo nisi tempor ultricies accumsan. Sed at dapibus felis. Suspendisse potenti. Vestibulum ut blandit nulla.</p>
+    </div>
   </div>
   <img class="flowers top" src="./assets/imgs/flowers.png">
   <img class="flowers bottom" src="./assets/imgs/flowers.png">
@@ -54,6 +60,40 @@ h2 {
   font-size: 4vw;
 }
 
+#content img {
+  margin-top: 20px;
+  height: 20px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.splash, .text {
+  position: fixed;
+  transition: transform 2s;
+}
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+}
+
+.text {
+  text-align: center;
+  max-width: 500px;
+  transform: translateY(100vh);
+}
+
+.active .splash {
+  transform: translateY(-100vh);
+}
+
+.active .text {
+  transform: translateY(0);
+}
+
 .flowers {
   position: fixed;
   width: calc(100vw + 400px);
@@ -94,5 +134,13 @@ h2 {
   }
 }
 </style>
+
+<script>
+(() => {
+  document.getElementById('activate').addEventListener('click', () => {
+    document.getElementById('content').classList.add('active');
+  })
+})();
+</script>
 
 </html>
