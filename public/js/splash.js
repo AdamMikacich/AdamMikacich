@@ -29,10 +29,7 @@ async function splash() {
   anime({
     targets: '.projects',
     translateY: '50vh',
-    duration: 2000,
-    complete: function() {
-      document.querySelector('.projects').style.height = '50vh';
-    }
+    duration: 2000
   });
 
   anime({
