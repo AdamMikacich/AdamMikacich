@@ -84,7 +84,7 @@ async function two() {
     targets: '#confettiContainer',
     opacity: 1,
     easing: 'easeInOutSine',
-    duration: 2000
+    duration: 1000
   });
 }
 
