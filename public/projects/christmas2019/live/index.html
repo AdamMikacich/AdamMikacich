@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+  <script src="./snow.js"></script>
+
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+  
+  body {
+    font-family: 'Courgette', cursive;
+    background: #111;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: url(https://media.istockphoto.com/vectors/christmas-pattern-vector-id873495850?b=1&k=6&m=873495850&s=612x612&h=UM5X-LIeBm02PHHrfbbvH81fCZzGV8iEHmBlau-fr1M=);
+    margin: 0;
+    width: 100vw;
+  }
+
+  h1 {
+    font-size: 144px;
+  }
+
+  h2 {
+    font-size: 64px;
+  }
+
+  h3 {
+    font-size: 48px;
+  }
+
+  #vignette {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(rgba(0, 0, 0, 0.8), transparent);
+    z-index: -1;
+  }
+
+  #trees {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -2;
+  }
+
+  #trees img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
+
+  #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+  }
+  </style>
+</head>
+<body>
+  <div id="trees"></div>
+  <div id="vignette"></div>
+  <div class="message">
+    <h1>Merry Christmas</h1>
+    <h2>Mom and Dad</h2>
+    <h3>Love, Adam</h3>
+  </div>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', init);
+
+function init() {
+  const trees = document.getElementById('trees');
+  let mouseX = 0;
+  let mouseY = 0;
+
+  function drawTree(x, y) {
+    const img = document.createElement('img');
+    img.setAttribute('src', './tree.svg');
+    img.style.top = `${y - 25}px`;
+    img.style.left = `${x - 25}px`;
+    img.style.transform = 'translateY(50px)';
+    img.style.opacity = 0;
+    img.style.filter = `saturate(${(Math.random() * 60) + 50}%)`;
+    trees.append(img);
+    anime({
+      targets: img,
+      translateY: 0,
+      opacity: 1,
+      scale: (Math.random() * 1) + 0.5
+    });
+  }
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function createTree() {
+    drawTree(mouseX, mouseY);
+  }
+
+  let interval = null;
+
+  document.addEventListener('mousedown', (e) => {
+    if (interval == null) interval = setInterval(createTree, 100);
+    // createTree(e.clientX, e.clientY);
+  });
+
+  document.addEventListener('mouseup', (e) => {
+    clearInterval(interval);
+    interval = null;
+  });
+}
+</script>
+</html>

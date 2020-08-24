@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mother's Day 2020</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="content">
+    <div class="splash">
+      <h2>Happy</h2>
+      <h1>Mother's Day</h1>
+      <img id="activate" src="assets/imgs/arrow-down-solid.svg">
+    </div>
+    <div class="text">
+      <p>Happy Mother's Day, Mom! I appreciate everything you do, especially your help with college apps and cooking all of our meals. You're always there for me and help me when I'm having a rough time. You're the best mom in the world! I hope you have an amazing day!<br></br>Love,<br>Adam</p>
+    </div>
+  </div>
+  <img class="flowers top" src="./assets/imgs/flowers.png">
+  <img class="flowers bottom" src="./assets/imgs/flowers.png">
+</body>
+
+<style>
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(45deg, #FAACA8, #DDD6F3);
+}
+
+* {
+  font-family: 'Noto Sans', sans-serif;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+#content {
+  position: absolute;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+h1, h2 {
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 7vw;
+}
+
+h2 {
+  font-size: 4vw;
+}
+
+#content img {
+  margin-top: 20px;
+  height: 20px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.splash, .text {
+  position: fixed;
+  transition: transform 2s;
+}
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+}
+
+.text {
+  text-align: center;
+  max-width: 500px;
+  transform: translateY(100vh);
+  font-size: 18px;
+}
+
+.active .splash {
+  transform: translateY(-100vh);
+}
+
+.active .text {
+  transform: translateY(0);
+}
+
+.flowers {
+  position: fixed;
+  width: calc(100vw + 400px);
+  left: -200px;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.flowers.top {
+  transform: translateY(-70px) scale(0.9) rotate(180deg);
+  top: -12vw;
+  animation-name: top;
+}
+
+.flowers.bottom {
+  transform: translateY(10px) scale(0.9);
+  bottom: -14vw;
+  animation-name: bottom;
+  animation-delay: 1s;
+}
+
+@keyframes top {
+  from {
+    transform: translateY(-70px) scale(0.9) rotate(180deg);
+  }
+  to {
+    transform: translateY(10px) scale(1.1) rotate(180deg);
+  }
+}
+
+@keyframes bottom {
+  from {
+    transform: translateY(10px) scale(0.9);
+  }
+  to {
+    transform: translateY(-70px) scale(1.1);
+  }
+}
+</style>
+
+<script>
+(() => {
+  document.getElementById('activate').addEventListener('click', () => {
+    document.getElementById('content').classList.add('active');
+    document.getElementById('content').style.zIndex = 0;
+  })
+})();
+</script>
+
+</html>
