@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+	</head>
+
+	<body>
+		<script type="module">
+      import * as THREE from './three.module.js';
+      import { ParallaxBarrierEffect } from './effect.js';
+            
+			let container, camera, scene, renderer, effect;
+
+      const spheres = [];
+      const flakes = new THREE.Group();
+
+      let material, green, red, materialFlake;
+
+			let mouseX = 0;
+			let mouseY = 0;
+
+			let windowHalfX = window.innerWidth / 2;
+      let windowHalfY = window.innerHeight / 2;
+      
+      let show = false;
+
+      document.addEventListener('mousemove', onDocumentMouseMove, false);
+      document.addEventListener('mousedown', () => {
+        show = true;
+      }, false);
+
+			init();
+			animate();
+
+			function init() {
+				container = document.createElement('div');
+				document.body.appendChild(container);
+				camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.01, 100);
+				camera.position.z = 3;
+				camera.focalLength = 3;
+        scene = new THREE.Scene();
+        
+				const geometry = new THREE.SphereBufferGeometry( 0.1, 32, 16 );
+				material = new THREE.MeshStandardMaterial({
+          color: 0xffffff,
+          roughness: 0.5,
+          metalness: 1
+        });
+
+        green = new THREE.MeshStandardMaterial({
+          color: 0x2ecc71,
+          roughness: 0.4,
+          metalness: 1,
+          opacity: 0,
+          transparent: true
+        });
+
+        red = new THREE.MeshStandardMaterial({
+          color: 0xe74c3c,
+          roughness: 0.4,
+          metalness: 1,
+          opacity: 0,
+          transparent: true
+        });
+
+				for (let i = 0; i < 1000; i++) {
+          const mat = Math.random() < 0.5 ? green : red;
+					const mesh = new THREE.Mesh( geometry, mat );
+					mesh.position.x = Math.random() * 20 - 5;
+					mesh.position.y = Math.random() * 10 - 5;
+					mesh.position.z = Math.random() * 10 - 10;
+					mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 0.1 + 0.1;
+					scene.add( mesh );
+					spheres.push( mesh );
+        }
+
+        const light = new THREE.DirectionalLight(0xffffff);
+        light.position.set(300, 300, 300);
+        scene.add(light);
+
+        (() => {
+          const loader = new THREE.FontLoader();
+          loader.load('Courgette_Regular.json', function(font) {
+            const text1 = new THREE.TextGeometry('Merry Christmas', {
+              font: font,
+              size: 40,
+              height: 5,
+              curveSegments: 12,
+              bevelEnabled: true,
+              bevelThickness: 1,
+              bevelSize: 1,
+              bevelOffset: 0,
+              bevelSegments: 10
+            });
+            const mesh1 = new THREE.Mesh(text1, material);
+            mesh1.scale.x = mesh1.scale.y = mesh1.scale.z = 0.05;
+            mesh1.position.x = -10;
+            mesh1.position.y = 2;
+            mesh1.position.z = -15;
+            scene.add(mesh1);
+
+            const text2 = new THREE.TextGeometry('Thanks for bringing holiday cheer throughout the year', {
+              font: font,
+              size: 20,
+              height: 5,
+              curveSegments: 12,
+              bevelEnabled: true,
+              bevelThickness: 1,
+              bevelSize: 1,
+              bevelOffset: 0,
+              bevelSegments: 10
+            });
+            const mesh2 = new THREE.Mesh(text2, material);
+            mesh2.scale.x = mesh2.scale.y = mesh2.scale.z = 0.05;
+            mesh2.position.x = -16;
+            mesh2.position.y = 0;
+            mesh2.position.z = -15;
+            scene.add(mesh2);
+
+            const text3 = new THREE.TextGeometry('Love, Adam', {
+              font: font,
+              size: 20,
+              height: 5,
+              curveSegments: 12,
+              bevelEnabled: true,
+              bevelThickness: 1,
+              bevelSize: 1,
+              bevelOffset: 0,
+              bevelSegments: 10
+            });
+            const mesh3 = new THREE.Mesh(text3, material);
+            mesh3.scale.x = mesh3.scale.y = mesh3.scale.z = 0.05;
+            mesh3.position.x = -3.5;
+            mesh3.position.y = -2;
+            mesh3.position.z = -15;
+            scene.add(mesh3);
+          });
+        })();
+
+        // const axesHelper = new THREE.AxesHelper( 5 );
+        // scene.add(axesHelper);
+
+        (() => {
+          const texture_loader = new THREE.TextureLoader()
+          const texture = texture_loader.load('./snowflake.png');
+          function rand(low, high) {
+            return (Math.random() * (high - low)) + low;
+          }
+          const geom = new THREE.PlaneBufferGeometry(1,1)
+          materialFlake = new THREE.MeshLambertMaterial({
+              color:'white', map:texture, 
+              transparent:true, side:THREE.DoubleSide, opacity: 0})
+          for(let i = 0; i < 100; i++) {
+            const flake = new THREE.Mesh(geom,materialFlake)
+            flake.position.set(rand(-10,10),rand(-5,7),rand(-5,0))
+            flake.velocity = new THREE.Vector3(0,rand(-5,-30),0)
+            const rot = rand(0,3)
+            if(rot < 1) flake.rotationVelocity
+                = new THREE.Vector3(rand(-30,30),0,0)
+            if(rot > 1 && rot < 2) flake.rotationVelocity
+                = new THREE.Vector3(0,rand(-30,30),0)
+            if(rot > 2) flake.rotationVelocity 
+                = new THREE.Vector3(0,0,rand(-30,30))
+            flakes.add(flake)
+          }
+          flakes.position.z = -2
+          scene.add(flakes);
+        })();
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio(window.devicePixelRatio);
+				container.appendChild(renderer.domElement);
+				const width = window.innerWidth || 2;
+        const height = window.innerHeight || 2;
+        window.addEventListener('resize', onWindowResize, false);
+        onWindowResize();
+			}
+
+			function onWindowResize() {
+				windowHalfX = window.innerWidth / 2;
+				windowHalfY = window.innerHeight / 2;
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+        renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+
+			function onDocumentMouseMove( event ) {
+				mouseX = ( event.clientX - windowHalfX ) / 1000;
+				mouseY = ( event.clientY - windowHalfY ) / 1000;
+      }
+      
+			function animate() {
+				requestAnimationFrame( animate );
+				render();
+			}
+
+			function render() {
+				const timer = 0.0001 * Date.now();
+				camera.position.x -= (mouseX + camera.position.x) * .07;
+				camera.position.y -= (-mouseY + camera.position.y) * .07;
+				camera.lookAt( scene.position );
+				spheres.forEach((sphere, i) => {
+					sphere.position.x = 5 * Math.cos(timer + i);
+					sphere.position.y = 5 * Math.sin(timer + i * 1.1);
+        });
+        flakes.children.forEach(flake => {
+          flake.position.x += flake.velocity.x / 1000;
+          flake.position.y += flake.velocity.y / 1000;
+          flake.position.z += flake.velocity.z / 1000;
+          flake.rotation.x += flake.rotationVelocity.x / 1000;
+          flake.rotation.y += flake.rotationVelocity.y / 1000;
+          flake.rotation.z += flake.rotationVelocity.z / 1000;
+          if(flake.position.y < -10) flake.position.y += 20;
+        });
+        if (show) {
+          red.opacity += 0.01;
+          green.opacity += 0.01;
+          materialFlake.opacity += 0.01;
+          if (red.opacity >= 1) {
+            show = false;
+          }
+        }
+				renderer.render( scene, camera );
+			}
+		</script>
+	</body>
+</html>
