@@ -28,11 +28,7 @@ h1 {
   font-weight: bold;
   position: absolute;
   font-size: 4em;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(45deg, #820000, #CB0D0D);
-  border-radius: 20px;
-  padding: 50px 100px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity 0.5s;
 }
