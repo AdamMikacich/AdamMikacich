@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Museum of Amelia Abisia</title>
+
+  <!-- Loads <model-viewer> for modern browsers: -->
+  <script type="module"
+  src="https://unpkg.com/@google/model-viewer@0.6.0/dist/model-viewer.js">
+  </script>
+
+  <!-- Loads <model-viewer> for old browsers like IE11: -->
+  <script nomodule
+  src="https://unpkg.com/@google/model-viewer@0.6.0/dist/model-viewer-legacy.js">
+  </script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    * {
+      font-family: 'Raleway', sans-serif;
+    }
+
+    model-viewer {
+      display: block;
+      margin: 0 auto;
+      width: 100vw;
+      height: 50%;
+      outline: none;
+    }
+
+    .activate {
+      padding: 12px 16px;
+      background: white;
+      color: black;
+      border-radius: 4px;
+      border: solid 1px black;
+      outline: none;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <model-viewer src="./object.glb" ios-src="./object.usdz" ar="ar" auto-rotate="auto-rotate" camera-controls="camera-controls" background-color="#FFF" quick-look-browsers="safari chrome">
+    <button slot="ar-button" class="activate">AR</button>
+  </model-viewer>
+</body>
+</html>
